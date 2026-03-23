@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -eo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -15,5 +15,5 @@ LOG_FILE="$SCRIPT_DIR/logs/gtm_startup.log"
 mkdir -p "$SCRIPT_DIR/logs"
 
 echo "Starting Gold Trading Decision System in background (log: $LOG_FILE)..."
-nohup python main.py "$@" >> "$LOG_FILE" 2>&1 &
+nohup python3 main.py "$@" >> "$LOG_FILE" 2>&1 &
 echo "PID: $!"

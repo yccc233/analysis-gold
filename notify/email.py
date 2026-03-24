@@ -66,11 +66,7 @@ def _build_body(decision: dict) -> str:
 
 
 def send_decision_email(decision: dict) -> bool:
-    """当评级 > 3星时发送邮件。返回是否发送成功。"""
-    if decision["stars"] <= 3:
-        log.info("stars=%d, skip email", decision["stars"])
-        return False
-
+    """每次调研完成后均发送邮件。返回是否发送成功。"""
     smtp_host = os.getenv("SMTP_HOST", "smtp.qq.com")
     try:
         smtp_port = int(os.getenv("SMTP_PORT", "465"))
